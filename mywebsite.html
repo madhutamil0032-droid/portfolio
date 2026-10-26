@@ -1,0 +1,1285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Madhumitha | Personal Portfolio</title>
+
+    <style>
+        /* GENERAL STYLING */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #7856d6;
+            --secondary: #edc9f5;
+            --background: #faf8ff;
+            --card: #ffffff;
+            --text: #29243a;
+            --muted: #6b657a;
+            --border: #e8e0f3;
+            --header: rgba(255, 255, 255, 0.94);
+        }
+
+        body.dark-mode {
+            --primary: #b69aff;
+            --secondary: #46345c;
+            --background: #171522;
+            --card: #242033;
+            --text: #f5f0ff;
+            --muted: #c1b9d2;
+            --border: #3a324c;
+            --header: rgba(28, 25, 41, 0.96);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 40px;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--header);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .theme-button,
+        .menu-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 9px 13px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .menu-button {
+            display: none;
+        }
+
+        /* HOME */
+
+        #home {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 85% 20%,
+                var(--secondary), transparent 35%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--text);
+            padding: 7px 16px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .hero-content p {
+            color: var(--muted);
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        #typing-text {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 23px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+     
+.hero-circle {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(120, 86, 214, 0.2);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+        }
+
+        /* ABOUT ME */
+
+        .about-card {
+            background: var(--card);
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 25px rgba(50, 30, 80, 0.04);
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .about-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .detail {
+            padding: 15px;
+            background: var(--background);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .detail strong {
+            color: var(--primary);
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            padding: 25px 15px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--primary);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        #projects {
+            background: var(--secondary);
+            background: color-mix(in srgb,
+                var(--secondary) 20%, var(--background));
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card);
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--text);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 3px;
+        }
+
+        /* CERTIFICATIONS */
+
+        .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .cert-icon {
+            font-size: 32px;
+        }
+
+        .cert-card h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .cert-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        
+       
+      @media (max-width: 768px) {
+     .certifications-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+        /* GOALS */
+
+        .goal-card {
+            background: var(--card);
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .goal-card p {
+            color: var(--muted);
+            max-width: 750px;
+            margin: 0 auto 20px;
+        }
+
+        .goal-points {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .goal-point {
+            padding: 12px 18px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        /* CONTACT */
+
+        .contact-card {
+            max-width: 700px;
+            margin: auto;
+            padding: 35px;
+            text-align: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 25px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        #back-to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 15px 0;
+            }
+
+            .menu-button {
+                display: inline-block;
+            }
+
+            .nav-actions {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                grid-row: 1;
+            }
+
+            .hero-circle {
+                width: 180px;
+                height: 180px;
+                font-size: 70px;
+            }
+
+            .projects-grid,
+            .certifications-list {
+                grid-template-columns: 1fr;
+            }
+
+            .about-details {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card,
+            .goal-card,
+            .contact-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="container">
+
+            <a href="#home" class="logo">Madhumitha.J</a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">My Skills</a></li>
+                <li><a href="#projects">My Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#goals">My Goals</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-button" id="themeButton"
+                    onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    🌙
+                </button>
+
+                <button class="menu-button" onclick="toggleMenu()"
+                    aria-label="Toggle navigation menu">
+                    ☰
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- 1. HOME -->
+        <section id="home">
+            <div class="container hero-content">
+
+                <div>
+                    <span class="hero-label">
+                        Welcome to My Portfolio ✨
+                    </span>
+
+                    <h1>
+                        Hi, I'm <span class="highlight">Madhumitha.J</span>!
+                    </h1>
+
+                    <h2>
+                        I'm a <span id="typing-text">Computer Science Student</span>
+                    </h2>
+
+                    <p>
+                        I enjoy learning new technologies, developing my
+                        programming skills, and creating useful digital
+                        solutions. Welcome to my personal portfolio!
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">
+                            Explore My Projects
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+               
+              <div class="hero-visual">
+    <div class="hero-circle">
+        <img src="./madhumitha.jpg.jpeg" alt="Madhumitha" class="profile-photo">
+    </div>
+</div>
+
+        </section>
+
+        <!-- 2. ABOUT ME -->
+        <section id="about">
+            <div class="container">
+
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+
+                <p class="section-subtitle">
+                    Get to know me and my learning journey.
+                </p>
+
+                <div class="about-card">
+
+                    <p>
+                        Hello! I'm Madhumitha, a Computer Science student
+                        specializing in Cognitive Systems at Vellalar College
+                        for Women, Thindal, Erode.
+                    </p>
+
+                    <p>
+                        I am interested in programming, web development,
+                        and emerging technologies. I enjoy exploring new
+                        concepts, practising coding, and improving my
+                        problem-solving abilities.
+                    </p>
+
+                    <p>
+                        I aim to apply my knowledge to practical projects
+                        and continue growing as a software developer.
+                    </p>
+
+                    <div class="about-details">
+
+                        <div class="detail">
+                            <strong>🎓 Education</strong><br>
+                            Computer Science with Cognitive Systems
+                        </div>
+
+                        <div class="detail">
+                            <strong>💻 Career Interest</strong><br>
+                            Software Development
+                        </div>
+
+                        <div class="detail">
+                            <strong>📚 Currently Learning</strong><br>
+                            Java and Web Development
+                        </div>
+
+                        <div class="detail">
+                            <strong>🌱 Personal Interest</strong><br>
+                            Learning New Technologies
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. MY SKILLS -->
+        <section id="skills">
+            <div class="container">
+
+                <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+
+                <p class="section-subtitle">
+                    Technologies and skills I am learning and practising.
+                </p>
+
+                <div class="skills-grid">
+              
+                    <div class="skill-card">
+                         <div class="skill-icon">🐍</div>
+                         <h3>Python</h3>
+                         <p>Learning Python programming and problem-solving concepts.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">☕</div>
+                        <h3>Java</h3>
+                        <p>Programming fundamentals and problem solving.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🌐</div>
+                        <h3>HTML</h3>
+                        <p>Building the structure of web pages.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <h3>CSS</h3>
+                        <p>Styling websites and creating layouts.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h3>JavaScript</h3>
+                        <p>Adding interactivity to websites.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🐘</div>
+                        <h3>PHP</h3>
+                        <p>Learning server-side web development.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🌐</div>
+                        <h3>WordPress</h3>
+                        <p>Creating and customizing websites using WordPress.</p>
+                   </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🗄️</div>
+                        <h3>MySQL</h3>
+                        <p>Learning database concepts and queries.</p>
+                    </div>
+
+                    <div class="skill-card">
+                         <div class="skill-icon">☁️</div>
+                         <h3>Cloud Computing</h3>
+                        <p>Learning cloud technologies and cloud computing fundamentals.</p>
+                   </div>
+ 
+                    <div class="skill-card">
+                        <div class="skill-icon">📊</div>
+                        <h3>Power BI</h3>
+                        <p>Learning data visualization and interactive dashboards.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🧩</div>
+                        <h3>Problem Solving</h3>
+                        <p>Developing logical thinking skills.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">📖</div>
+                        <h3>Continuous Learning</h3>
+                        <p>Exploring technologies and improving skills.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MY PROJECTS -->
+        <section id="projects">
+            <div class="container">
+
+                <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+
+                <p class="section-subtitle">
+                    Some of the projects I have worked on.
+                </p>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+
+                        <div class="project-icon">🔐</div>
+
+                        <h3>Password Strength Analyzer</h3>
+
+                        <p>
+                            A web-based project that evaluates password
+                            strength and helps users understand how to
+                            create stronger passwords.
+                        </p>
+
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+
+                    </article>
+
+                    <article class="project-card">
+
+                        <div class="project-icon">👤</div>
+
+                        <h3>PHP User Registration System</h3>
+
+                        <p>
+                            A web application designed to let users register
+                            accounts and submit their details through a
+                            registration form.
+                        </p>
+
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">MySQL*</span>
+
+                    </article>
+
+                    <article class="project-card">
+
+                        <div class="project-icon">💧</div>
+
+                        <h3>NeerPangu</h3>
+
+                        <p>
+                            A smart irrigation water equity project idea
+                            focused on fair water distribution and better
+                            irrigation management for farmers.
+                        </p>
+
+                        <span class="tech-tag">IoT Concept</span>
+                        <span class="tech-tag">Smart Agriculture</span>
+
+                    </article>
+
+                    <article class="project-card">
+
+                        <div class="project-icon">🌷</div>
+
+                        <h3>Personal Portfolio Website</h3>
+
+                        <p>
+                            A personal website showcasing my introduction,
+                            technical skills, projects, certifications,
+                            and career goals.
+                        </p>
+
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+
+                    </article>
+
+                  
+                <article class="project-card">
+
+    <div class="project-icon">🚀</div>
+
+    <h3>CodeOrbit – Java Projects</h3>
+
+    <p>
+        CodeOrbit is a collection of Java projects showcasing programming fundamentals, logical thinking, and OOP concepts..
+    </p>
+
+    <h4>Projects Included:</h4>
+
+    <p>
+        🏦 Bank Account Simulation<br>
+        🧮 Simple Calculator<br>
+        🎓 Student Grade Management
+    </p>
+
+    <span class="tech-tag">Java</span>
+    <span class="tech-tag">OOP Concepts</span>
+
+    <br><br>
+
+    <a class="btn"
+       href="https://github.com/madhutamil0032-droid/CodeOrbit-Java"
+       target="_blank"
+       rel="noopener noreferrer">
+        View on GitHub ↗
+    </a>
+
+</article>
+
+                </div>
+        </section>
+
+       
+              <!-- 5. CERTIFICATIONS -->
+             <section id="certifications">
+          <div class="container">
+
+        <h2 class="section-title">
+            My <span class="highlight">Certifications</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Courses, workshops, and achievements.
+        </p>
+
+        <div class="certifications-list">
+
+            <div class="cert-card">
+                <div class="cert-icon">🏆</div>
+                <div>
+                    <h3>Certificate of Merit</h3>
+                    <p>Indian Space Research Organisation (ISRO)</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🗄️</div>
+                <div>
+                    <h3>MySQL: From Basic to Practical Applications</h3>
+                    <p>Cornixe</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">📊</div>
+                <div>
+                    <h3>Power BI Workshop</h3>
+                    <p>Cornixe</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">📘</div>
+                <div>
+                    <h3>Continuous Learning</h3>
+                    <p>Improving programming and technical knowledge.</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🎓</div>
+                <div>
+                    <h3>NPTEL Certification</h3>
+                    <p>National Programme on Technology Enhanced Learning</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🤖</div>
+                <div>
+                    <h3>AI Tools for Beginners</h3>
+                    <p>Edwyna</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">📊</div>
+                <div>
+                    <h3>2-Day Power BI Workshop</h3>
+                    <p>Cornixe</p>
+                </div>
+            </div>
+
+        </div>
+
+        <p style="text-align: center; color: var(--muted);
+            margin-top: 20px; font-size: 13px;">
+            Please verify each certification title against your actual certificate.
+        </p>
+
+    </div>
+</section>
+
+
+        <!-- 6. MY GOALS -->
+        <section id="goals">
+            <div class="container">
+
+                <h2 class="section-title">My <span class="highlight">Goals</span></h2>
+
+                <p class="section-subtitle">
+                    My vision for learning and professional growth.
+                </p>
+
+                <div class="goal-card">
+
+                    <div style="font-size: 50px; margin-bottom: 15px;">
+                        🎯
+                    </div>
+
+                    <h3 style="margin-bottom: 15px;">
+                        Becoming a Skilled Software Developer
+                    </h3>
+
+                    <p>
+                        My goal is to strengthen my programming knowledge,
+                        gain practical experience, and build applications
+                        that solve real-world problems. I also aim to
+                        secure an internship or entry-level opportunity
+                        where I can learn and contribute to a team.
+                    </p>
+
+                    <div class="goal-points">
+
+                        <div class="goal-point">💻 Improve Coding Skills</div>
+
+                        <div class="goal-point">🚀 Build Real Projects</div>
+
+                        <div class="goal-point">📚 Learn New Technologies</div>
+
+                        <div class="goal-point">🌟 Grow Professionally</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT ME -->
+        <section id="contact">
+            <div class="container">
+
+                <h2 class="section-title">
+                    Contact <span class="highlight">Me</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Let's connect and share ideas!
+                </p>
+
+                <div class="contact-card">
+
+                    <div style="font-size: 45px; margin-bottom: 15px;">
+                        💌
+                    </div>
+
+                    <h3 style="margin-bottom: 12px;">
+                        I'd Love to Connect With You!
+                    </h3>
+
+                    <p>
+                        Feel free to connect with me for professional
+                        networking, learning opportunities, or project
+                        discussions.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <!-- Replace # with your actual profile links -->
+
+                        <a class="contact-link"
+                         href="https://www.linkedin.com/in/madhumitha-jayabalu-4baa53334"
+                         target="_blank"
+                         rel="noopener noreferrer">
+                         LinkedIn
+                         </a>
+
+                        <a class="contact-link"
+                            href="https://github.com/madhutamil0032-droid"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+                        </a>
+
+                        <button class="btn"
+                            onclick="showContactMessage()">
+                            Say Hello 👋
+                        </button>
+
+                    </div>
+
+                    <p id="contact-message"
+                        style="margin-top: 22px; color: var(--primary);"
+                        aria-live="polite">
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; <span id="year"></span> Madhumitha.J
+            Designed with 💜 and a passion for learning.
+        </p>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top"
+        onclick="scrollToTop()"
+        aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // 1. Typing animation
+
+        const roles = [
+            "Computer Science Student",
+            "Aspiring Software Developer",
+            "Technology Learner",
+            "Web Development Enthusiast"
+        ];
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+
+            const typingText = document.getElementById("typing-text");
+            const currentRole = roles[roleIndex];
+
+            if (!deleting) {
+
+                typingText.textContent =
+                    currentRole.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === currentRole.length) {
+                    deleting = true;
+
+                    setTimeout(typeEffect, 1200);
+                    return;
+                }
+
+            } else {
+
+                typingText.textContent =
+                    currentRole.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+                    deleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
+            }
+
+            setTimeout(typeEffect, deleting ? 45 : 90);
+        }
+
+        typeEffect();
+
+
+        // 2. Dark mode toggle
+
+        function toggleTheme() {
+
+            document.body.classList.toggle("dark-mode");
+
+            const isDark =
+                document.body.classList.contains("dark-mode");
+
+            document.getElementById("themeButton").textContent =
+                isDark ? "☀️" : "🌙";
+
+            localStorage.setItem("portfolioTheme",
+                isDark ? "dark" : "light");
+        }
+
+        // Restore the selected theme
+
+        if (localStorage.getItem("portfolioTheme") === "dark") {
+
+            document.body.classList.add("dark-mode");
+
+            document.getElementById("themeButton").textContent = "☀️";
+        }
+
+
+        // 3. Mobile navigation menu
+
+        function toggleMenu() {
+
+            document.getElementById("navLinks")
+                .classList.toggle("active");
+        }
+
+        // Close mobile menu after clicking a navigation link
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                document.getElementById("navLinks")
+                    .classList.remove("active");
+
+            });
+
+        });
+
+
+        // 4. Contact button interaction
+
+        function showContactMessage() {
+
+            document.getElementById("contact-message").textContent =
+                "Thank you for visiting my portfolio! " +
+                "I look forward to connecting with you. 💜";
+        }
+
+
+        // 5. Back-to-top button
+
+        const backToTop = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 300) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+
+        });
+
+        function scrollToTop() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        // 6. Automatically update footer year
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
