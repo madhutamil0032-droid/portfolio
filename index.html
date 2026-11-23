@@ -590,6 +590,27 @@
                 padding: 22px;
             }
         }
+        .profile-photo {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-photo img {
+    display: block;
+    max-width: 100%;
+}
+
+.photo-watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    pointer-events: none;
+}
     </style>
 </head>
 
@@ -665,7 +686,12 @@
                
               <div class="hero-visual">
     <div class="hero-circle">
-        <img src="./madhumitha.jpg.jpeg" alt="Madhumitha" class="profile-photo">
+      <div class="profile-photo">
+    <img src="madhumitha.jpg.jpeg" alt="My Photo">
+    <span class="photo-watermark">
+        © Madhumitha | Portfolio
+    </span>
+</div>
     </div>
 </div>
 
